@@ -1,0 +1,16 @@
+
+
+<h2>List of students next to me</h2>
+<ul>
+	
+	<% @products.each do |product| %>
+	<li>
+			<%= product.name %>  - <%= product.price %>
+			<%= image_tag product.photo unless product.photo.nil? %>
+		<%= link_to 'Edit', edit_product_path(product) %>
+		<%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?'} %>
+	</li>
+	<% end %>
+
+</ul>
+<%= link_to 'New', new_product_path %>
