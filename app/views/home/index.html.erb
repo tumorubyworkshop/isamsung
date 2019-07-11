@@ -1,1 +1,17 @@
-<h1>isamsung</h1>
+<div>
+	<% @products.each do |product| %>
+	<div class="col-md-6 md-4">
+		<div class="card h-100">
+			<%= image_tag(product.photo, class: "card-img-top"
+			) unless product.photo.nil? %>
+			<div class="card-body">
+				<h4><%= product.name %></h4>
+				<h5><%= product.price %> AED</h5>
+				<p class="card-text"><%= product.description %></p>
+			</div>
+			<div class = "card-footer">
+				<%= link_to 'Add to cart', cart_add_path(product: product.id), class: 'btn btn-primary' %>
+		</div>
+	</div>
+	<% end %>
+</div>
